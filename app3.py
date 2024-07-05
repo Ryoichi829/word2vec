@@ -6,7 +6,7 @@ import gdown
 # gensimでモデルを読み込む（cache化する）
 @st.cache(ttl=3600)
 def vector_load():
-    temp_path = "C:/Users/ryoic/word2vec/jawiki.word_vectors.300d.bin"
+    temp_path = "jawiki.word_vectors.300d.bin"
     url = 'https://drive.google.com/uc?id=1WUIE0mhEw3AGfZWPuxb5E_oIDIsAxmWL'
     gdown.download(url, temp_path, quiet=False)
     model = KeyedVectors.load_word2vec_format(temp_path, binary=True) 
