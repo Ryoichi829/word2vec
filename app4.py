@@ -1,4 +1,4 @@
-# 以下をapp.pyに書き込み
+# 日本語学習済みモデルをdropboxからダウンロード
 from gensim.models import KeyedVectors
 import streamlit as st
 import requests
@@ -23,10 +23,9 @@ def load_model():
     return model
 
 # モデルのロードをローディングインジケーターで包む
-with st.spinner('モデル(800MB)をロード中...しばらくお待ちください。'):
+with st.spinner('日本語学習済みモデル(800MB)をロード中...しばらくお待ちください。'):
     try:
         model = load_model()
-        st.success('モデルのロードが完了しました。')
     except Exception as e:
         st.error(f"モデルのロードに失敗しました: {e}")
         st.stop()
