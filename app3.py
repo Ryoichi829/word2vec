@@ -3,7 +3,7 @@ from gensim.models import KeyedVectors
 import streamlit as st
 import gdown
 
-file_id = '1WUIE0mhEw3AGfZWPuxb5E_oIDIsAxmWL'
+file_id = "1WUIE0mhEw3AGfZWPuxb5E_oIDIsAxmWL"
 
 # gensimでモデルを読み込む（cache化する）
 @st.cache(ttl=3600)
