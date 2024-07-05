@@ -1,4 +1,4 @@
 streamlit
-gensim==4.1.2
-scipy
+gensim==4.3.0
+scipy==1.10.1
 gdown
