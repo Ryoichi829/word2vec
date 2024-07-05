@@ -3,11 +3,13 @@ from gensim.models import KeyedVectors
 import streamlit as st
 import gdown
 
+file_id = '1WUIE0mhEw3AGfZWPuxb5E_oIDIsAxmWL'
+
 # gensimでモデルを読み込む（cache化する）
 @st.cache(ttl=3600)
 def vector_load():
     temp_path = "jawiki.word_vectors.300d.bin"
-    url = 'https://drive.google.com/uc?id=1WUIE0mhEw3AGfZWPuxb5E_oIDIsAxmWL' + '&export=download'
+    url = f"https://drive.google.com/uc?id={file_id}&export=download"
     gdown.download(url, temp_path, quiet=False)
     model = KeyedVectors.load_word2vec_format(temp_path, binary=True) 
     return model
