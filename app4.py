@@ -14,7 +14,7 @@ def download_file(url, destination):
                 f.write(chunk)
 
 # gensimでモデルを読み込む（cache化する）
-@st.cache_data
+@st.cache(allow_output_mutation=True)
 def load_model():
     temp_path = "/tmp/jawiki.word_vectors.300d.bin"
     if not os.path.exists(temp_path):
