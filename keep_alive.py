@@ -14,8 +14,12 @@ async def run():
         # ページが完全にロードされるまで最大60秒待つ
         await page.wait_for_load_state('networkidle')
 
-        # 「処理を選択してください」のラジオボタンから「類似語を調べる」を選ぶ
-        await page.get_by_role("radio", name="類似語を調べる").click()
+        # 「類似語を調べる」ラジオボタンが現れるのを待つ（最大60秒）
+        radio_button = page.get_by_role("radio", name="類似語を調べる")
+        await radio_button.wait_for(state="visible", timeout=60000)
+
+        # それからラジオボタンクリック
+        await radio_button.click()
         
         # 「実行」ボタンが現れるまで最大60秒待つ
         run_button = page.get_by_role('button', name='実行')
