@@ -12,7 +12,7 @@ async def run():
         await page.goto('https://word2vec-yyfpltniu5iob544pq9rcx.streamlit.app/')
 
         # ② 「実行」という名前のボタンを探す
-        run_button = await page.get_by_role('button', name='実行')
+        run_button = page.get_by_role('button', name='実行')
 
         # ③ ボタンが見つかったらクリック！
         await run_button.click()
