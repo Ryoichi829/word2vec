@@ -8,11 +8,15 @@ async def run():
         browser = await p.chromium.launch(headless=True)  # ヘッドレスモードでブラウザ起動
         page = await browser.new_page()
 
-        # ① アプリのURLを開く
+        # アプリのURLを開く
         await page.goto('https://word2vec-yyfpltniu5iob544pq9rcx.streamlit.app/')
 
-        # ② 「実行」という名前のボタンを探す
+        # ページが完全にロードされるまで最大60秒待つ
+        await page.wait_for_load_state('networkidle')
+        
+        # ② 「実行」ボタンが現れるまで最大60秒待つ
         run_button = page.get_by_role('button', name='実行')
+        await run_button.wait_for(state="visible", timeout=60000)
 
         # ③ ボタンが見つかったらクリック！
         await run_button.click()
