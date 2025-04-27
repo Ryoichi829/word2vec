@@ -14,9 +14,8 @@ async def run():
         # ページが完全にロードされるまで最大60秒待つ
         await page.wait_for_load_state('networkidle')
 
-        # 「類似語を調べる」ラジオボタンが現れるのを待つ（最大60秒）
-        radio_button = page.get_by_role("radio", name="類似語を調べる")
-        await radio_button.wait_for(state="visible", timeout=60000)
+        # 「類似語を調べる」のテキストを持つ要素を探してクリック
+        await page.get_by_text("類似語を調べる", exact=True).click()
 
         # それからラジオボタンクリック
         await radio_button.click()
@@ -25,13 +24,13 @@ async def run():
         run_button = page.get_by_role('button', name='実行')
         await run_button.wait_for(state="visible", timeout=60000)
 
-        # ③ ボタンが見つかったらクリック！
+        # ボタンが見つかったらクリック！
         await run_button.click()
 
-        # ④ アプリが動くのを少し待つ（5秒くらい）
+        # アプリが動くのを少し待つ（5秒くらい）
         await page.wait_for_timeout(5000)
 
-        # ⑤ ブラウザを閉じる
+        # ブラウザを閉じる
         await browser.close()
 
 asyncio.run(run())
