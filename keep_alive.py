@@ -12,8 +12,7 @@ async def run():
         await page.goto('https://word2vec-yyfpltniu5iob544pq9rcx.streamlit.app/')
 
         # ページが完全にロードされるまで最大60秒待つ
-        await page.wait_for_load_state('networkidle')
-
+        # await page.wait_for_load_state('networkidle')
         await page.locator(...).wait_for(state="detached")
 
         # 「類似語を調べる」のテキストを持つ要素を探してクリック
