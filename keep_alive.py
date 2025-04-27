@@ -20,9 +20,8 @@ async def run():
         except Exception:
             print("ロード待機スキップ（ロード中メッセージが出なかった）")
 
-        # --- ここを追加！ ---
         # 「単語を入力してください。」のテキストボックスが現れるのを待つ
-        await page.get_by_label("単語を入力してください。").wait_for(state="visible", timeout=60000)
+        await page.get_by_text("単語を入力してください。").wait_for(state="visible", timeout=60000)
 
         # 実行ボタンを押す
         run_button = page.get_by_role('button', name='実行')
