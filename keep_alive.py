@@ -14,6 +14,8 @@ async def run():
         # ページが完全にロードされるまで最大60秒待つ
         await page.wait_for_load_state('networkidle')
 
+        await page.locator(...).wait_for(state="detached")
+
         # 「類似語を調べる」のテキストを持つ要素を探してクリック
         # await page.get_by_text("類似語を調べる", exact=True).click()
 
