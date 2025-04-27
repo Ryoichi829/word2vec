@@ -10,9 +10,9 @@ async def run():
         await page.wait_for_load_state('networkidle')
 
         # ラジオボタンの選択
-        radio_button = page.get_by_text("類似語を調べる", exact=True)
-        await radio_button.wait_for(state="visible", timeout=60000)
-        await radio_button.click()
+        # radio_button = page.get_by_text("類似語を調べる", exact=True)
+        # await radio_button.wait_for(state="visible", timeout=60000)
+        # await radio_button.click()
 
         # モデルロード中の表示が消えるのを待つ
         try:
