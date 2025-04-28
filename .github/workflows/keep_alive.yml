@@ -8,7 +8,8 @@ on:
 jobs:
   keep_alive:
     runs-on: ubuntu-latest
-
+    retention-days: 1  # ログを1日だけ保存
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
