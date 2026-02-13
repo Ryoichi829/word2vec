@@ -46,7 +46,7 @@ func = st.sidebar.radio("処理を選択してください。",
                         ("類似語を調べる","単語間の類似度を調べる","単語の足し算","単語の引き算","単語のアナロジー"))
 
 st.sidebar.write("")
-st.sidebar.write("東北大学乾研究室の日本語Wikipediaエンティティベクトルを使用しています。")
+st.sidebar.write("東北大学乾研究室の日本語Wikipedia Word2Vec（300次元）モデルを使用しています。")
 
 if func == "類似語を調べる":
     word_base = st.text_input("単語を入力してください。", value="青春")
